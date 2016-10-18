@@ -11,21 +11,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var AppComponent = (function () {
     function AppComponent() {
-        this.message = "Hello!";
+        // create the users list
         this.users = [
             { id: 25, name: 'Jarvis', username: "j.a.r.v.i.s." },
             { id: 26, name: 'Tony', username: "tony_stark" },
             { id: 27, name: 'Pepper', username: "miss_potts" }
         ];
     }
+    // set the selected user
     AppComponent.prototype.selectUser = function (user) {
         this.activeUser = user;
+    };
+    // when the template listener receives data
+    AppComponent.prototype.onUserCreated = function (event) {
+        this.users.push(event.user);
     };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
             templateUrl: './app/app.component.html',
-            styles: [
+            styleUrls: [
                 './app/app.component.css'
             ]
         }), 
